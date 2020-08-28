@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.nixesea.diffutillexample.R
-import com.nixesea.diffutillexample.model.Response
+import com.nixesea.diffutillexample.model.Content
 
 class MainListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val items: ArrayList<Response> = ArrayList()
+    private val items: ArrayList<Content> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -30,7 +30,7 @@ class MainListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
 
-    fun updateItems(newItems: ArrayList<Response>) {
+    fun updateItems(newItems: ArrayList<Content>) {
         items.clear()
         items.addAll(newItems)
 
@@ -38,28 +38,28 @@ class MainListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun sortByName() {
-        val oldItems: ArrayList<Response> = ArrayList(items)
+        val oldItems: ArrayList<Content> = ArrayList(items)
         items.sortBy { it.name }
         dispatchNewList(oldItems, items)
     }
 
     fun sortByDistance() {
-        val oldItems: ArrayList<Response> = ArrayList(items)
+        val oldItems: ArrayList<Content> = ArrayList(items)
         items.sortBy { it.distance }
         dispatchNewList(oldItems, items)
 
     }
 
     fun sortByStar() {
-        val oldItems: ArrayList<Response> = ArrayList(items)
+        val oldItems: ArrayList<Content> = ArrayList(items)
         items.sortBy { it.stars }
         dispatchNewList(oldItems, items)
 
     }
 
     private fun dispatchNewList(
-        oldItems: List<Response>,
-        newItems: List<Response>
+        oldItems: List<Content>,
+        newItems: List<Content>
     ) {
         val diffResult: DiffUtil.DiffResult =
             DiffUtil.calculateDiff(SortingDiffUtil(oldItems, newItems))
@@ -72,8 +72,8 @@ class MainListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 }
 
 class SortingDiffUtil(
-    private val oldItems: List<Response>,
-    private val newItems: List<Response>
+    private val oldItems: List<Content>,
+    private val newItems: List<Content>
 ) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {
