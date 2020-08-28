@@ -1,0 +1,66 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        def lifecycle_version = '2.2.0'
+        def livedata_version = '2.2.0'
+        def viewmodel_version = '2.2.0'
+        def navigation_version = '1.0.0'
+        def retrofit2_version = "2.6.2"
+        def okhttp3_version = "3.12.0"
+        def kotlinCoroutineVersion = "1.0.1"
+
+        coroutines = [
+                //Kotlin Coroutines
+                "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion",
+                "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
+        ]
+        network = [
+                //Retrofit2
+                "com.squareup.retrofit2:retrofit:$retrofit2_version",
+                "com.squareup.retrofit2:converter-gson:$retrofit2_version",
+                "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2",
+                //Okhttp3
+                "com.squareup.okhttp3:okhttp:$okhttp3_version",
+                "com.squareup.okhttp3:logging-interceptor:3.11.0",
+        ]
+        navigation = [
+                // Navigation
+                "android.arch.navigation:navigation-fragment-ktx:$navigation_version",
+                "android.arch.navigation:navigation-ui-ktx:$navigation_version",
+        ]
+        viewmodel = [
+                // ViewModel and LiveData
+                "androidx.lifecycle:lifecycle-extensions:$lifecycle_version",
+                "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_version",
+                "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version",
+                'com.karumi:dexter:5.0.0'
+        ]
+        ui = [
+                'com.google.android.material:material:1.2.0',
+        ]
+    }
+
+    ext.kotlin_version = "1.4.0"
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

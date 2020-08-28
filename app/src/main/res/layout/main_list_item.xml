@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_stars"
+                android:layout_width="75dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:background="@drawable/ic_star"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="item_stars" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/item_address"
+                app:layout_constraintStart_toEndOf="@id/item_stars"
+                app:layout_constraintTop_toTopOf="@id/item_stars"
+                tools:text="item_name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/item_stars"
+                app:layout_constraintStart_toEndOf="@id/item_stars"
+                app:layout_constraintTop_toBottomOf="@id/item_name"
+                tools:text="item_address" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_address"
+                tools:text="item _distance" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:visibility="gone"
+                android:src="@android:color/darker_gray"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="1dp"
+                android:src="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

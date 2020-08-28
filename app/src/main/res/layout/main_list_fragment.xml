@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainListFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sort_by_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by Star"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sort_by_name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sort_by_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by distance"
+        app:layout_constraintBottom_toTopOf="@id/sort_by_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sort_by_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sort_by_star"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
