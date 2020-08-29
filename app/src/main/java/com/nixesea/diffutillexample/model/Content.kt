@@ -24,6 +24,7 @@ data class Content(
 
         return true
     }
+
     override fun hashCode(): Int {
         var result = id
         result = 31 * result + name.hashCode()

@@ -1,13 +1,12 @@
 package com.nixesea.diffutillexample.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nixesea.diffutillexample.Repository
-import com.nixesea.diffutillexample.model.Content
+import com.nixesea.diffutillexample.model.ListItemsType
 import com.nixesea.diffutillexample.model.Response
-import com.nixesea.diffutillexample.network.ApiBase
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -20,10 +19,11 @@ class MainListViewModel : ViewModel() {
         viewModelScope.launch {
             Repository.getList()
                 .catch { exception ->
+                    exception.printStackTrace()
                     _networkResponse.value = Response.Error(exception.message.toString())
                 }
                 .collect { list ->
-                    _networkResponse.value = Response.Success(list)
+                    _networkResponse.value = Response.Success(ArrayList<ListItemsType>(list))
                 }
         }
     }
